@@ -1,0 +1,5 @@
+spring:
+  cloudinary:
+    cloud-name: ${CLOUDINARY_NAME:dthlb2txt}
+    api-key: ${CLOUDINARY_API_KEY:457682188489763}
+    secret-key: ${CLOUDINARY_SECRET_KEY:tmwawye9jutKIZX63MIuaKfy6Hc}

@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+    mysql:
+      image: mysql:8.0
+      container_name: mysql_vinhSeo
+      restart: always
+      environment:
+        - MYSQL_DATABASE=root
+        - MYSQL_ROOT_PASSWORD=Vl121620.
+      ports:
+        - '3306:3306'
+      volumes:
+        - mysql_data:/var/lib/mysql
+        - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+      networks:
+        - test
+
+    redis:
+      image: redis:7.4.2
+      container_name: redis_vinhSeo
+      hostname: redis
+      ports:
+        - '6379:6379'
+      environment:
+        - ALLOW_EMPTY_PASSWORD=yes
+        - REDIS_DISABLE_COMMANDS=FLUSHDB;FLUSHALL
+      networks:
+        - test
+
+networks:
+  test:
+    driver: bridge
+
+volumes:
+  mysql_data:
